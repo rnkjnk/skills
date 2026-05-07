@@ -122,7 +122,7 @@
     }
 
     function updateConnector() {
-        var hasSelection = state.activeSkillId || state.activeExperienceId;
+        var hasSelection = state.activeSkillName || state.activeExperienceId;
         var sourceNode;
         var targetNodes;
         var mainRect;
@@ -177,8 +177,12 @@
 
         for (targetIndex = 0; targetIndex < targetNodes.length; targetIndex += 1) {
             targetRect = targetNodes[targetIndex].getBoundingClientRect();
+            var companyNode = targetNodes[targetIndex].querySelector('.experience-card__company');
+            var companyRect = companyNode ? companyNode.getBoundingClientRect() : null;
             targetXInside = targetRect.left - mainRect.left;
-            targetYInside = (targetRect.top + (targetRect.height / 2)) - mainRect.top;
+            targetYInside = companyRect
+                ? (companyRect.top + (companyRect.height / 2)) - mainRect.top
+                : (targetRect.top + (targetRect.height / 2)) - mainRect.top;
 
             targetInfo.push({
                 x: targetXInside,
@@ -794,8 +798,21 @@
         function applyTheme(theme) {
             var linkIndex;
             var linkTheme;
+
+            function refreshConnectorForTheme() {
+                if (state.data && (state.activeSkillName || state.activeExperienceId)) {
+                    scheduleConnectorRefresh();
+                }
+            }
+
+            themeLink.onload = function () {
+                refreshConnectorForTheme();
+            };
+
             themeLink.href = 'themes/' + theme + '.css';
-            document.body.classList.toggle('retro-theme', theme === 'retro');
+            document.body.classList.remove('light-theme', 'dark-theme', 'retro-theme');
+            document.body.classList.add(theme + '-theme');
+            document.body.setAttribute('data-theme', theme);
             activeTheme = theme;
 
             for (linkIndex = 0; linkIndex < themeLinks.length; linkIndex += 1) {
@@ -812,6 +829,9 @@
             if (state.data) {
                 renderProfile();
             }
+
+            // Fallback in case stylesheet load event is not emitted by the browser/cache path.
+            setTimeout(refreshConnectorForTheme, 60);
         }
 
         try {

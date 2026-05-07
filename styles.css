@@ -153,6 +153,299 @@ body.retro-theme {
     color: #000000;
 }
 
+/* Light theme overrides for a flatter resume layout */
+body.light-theme {
+    background: #ffffff;
+    line-height: 1.42;
+}
+
+body.light-theme .page-shell {
+    max-width: 980px;
+    padding: 28px 24px 40px;
+}
+
+body.light-theme .panel {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.light-theme .theme-picker {
+    right: 0;
+    top: 0;
+}
+
+body.light-theme .theme-picker__separator {
+    color: #9b9b9b;
+}
+
+body.light-theme .theme-picker__link {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+body.light-theme .theme-picker__link.is-active,
+body.light-theme .theme-picker__link:hover,
+body.light-theme .theme-picker__link:focus {
+    color: var(--highlight);
+}
+
+body.light-theme .hero {
+    border-bottom: 1px solid #e3e3e3;
+    display: grid;
+    gap: 22px;
+    grid-template-columns: minmax(170px, 210px) 1fr;
+    overflow: visible;
+    padding-bottom: 22px;
+}
+
+body.light-theme .hero:before {
+    display: none;
+}
+
+body.light-theme .hero__media,
+body.light-theme .hero__content {
+    padding: 0;
+}
+
+body.light-theme .hero__photo {
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+    width: 210px;
+}
+
+body.light-theme h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
+    margin-bottom: 8px;
+}
+
+body.light-theme .headline {
+    color: var(--highlight);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+body.light-theme .summary {
+    color: var(--muted-strong);
+    font-style: italic;
+    margin-bottom: 0;
+    max-width: 64ch;
+}
+
+body.light-theme .contact-list {
+    gap: 4px 16px;
+    margin-top: 12px;
+}
+
+body.light-theme .contact-list li {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+body.light-theme main {
+    padding-top: 14px;
+}
+
+body.light-theme .section-block {
+    margin-top: 16px;
+    padding: 0;
+}
+
+body.light-theme .section-heading {
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+}
+
+body.light-theme .section-kicker {
+    color: #9a9a9a;
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+body.light-theme .skills-hint {
+    color: #999999;
+    font-size: 0.7rem;
+    margin-left: 8px;
+}
+
+body.light-theme .skills-list {
+    align-items: flex-start;
+    gap: 2px;
+}
+
+/* Base pill: tier-1 and tier-2 — dark grey, small, white text */
+body.light-theme .skill-pill {
+    background: #787878;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 1.4;
+    padding: 2.5px 7px;
+    transform: none;
+}
+
+body.light-theme .skill-pill--tier-1,
+body.light-theme .skill-pill--tier-2 {
+    background: #787878;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 0.625rem;
+    padding: 2.5px 7px;
+}
+
+/* tier-3: medium — light grey, black text */
+body.light-theme .skill-pill--tier-3 {
+    background: #d3d3d3;
+    border-radius: 25px;
+    color: #000000;
+    font-size: 0.8125rem;
+    padding: 4px 8px;
+}
+
+/* tier-4: large — orange, white text */
+body.light-theme .skill-pill--tier-4 {
+    background: #f2511b;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 1.0625rem;
+    padding: 4px 11px;
+}
+
+body.light-theme .skill-pill:hover,
+body.light-theme .skill-pill:focus {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09);
+    transform: translateY(-1px);
+}
+
+body.light-theme .skill-pill.is-active,
+body.light-theme .skill-pill.is-related {
+    border-radius: 25px;
+    box-shadow: 0 0 8px 2px rgba(255, 220, 50, 0.75), 0 0 20px 5px rgba(255, 220, 50, 0.35);
+    font-size: 1.0625rem;
+    padding: 4px 11px;
+}
+
+body.light-theme .skill-pill.is-active .skill-pill__meta {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+body.light-theme .skill-pill.is-dimmed,
+body.light-theme .experience-card.is-dimmed {
+    opacity: 0.3;
+}
+
+body.light-theme .experience-list {
+    gap: 16px;
+}
+
+body.light-theme .experience-card,
+body.light-theme .education-card,
+body.light-theme .contact-card {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+body.light-theme .experience-card {
+    border-top: 1px solid #efefef;
+    padding-top: 12px;
+}
+
+body.light-theme .experience-card:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+body.light-theme .experience-card.is-active,
+body.light-theme .experience-card.is-related {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body.light-theme .experience-card__title,
+body.light-theme .experience-card__company {
+    color: #2d2d2d;
+    font-weight: 700;
+}
+
+body.light-theme .experience-card__role {
+    color: var(--highlight);
+    font-weight: 700;
+}
+
+body.light-theme .experience-card__location,
+body.light-theme .experience-card__separator,
+body.light-theme .experience-card__meta {
+    color: #8c8c8c;
+}
+
+body.light-theme .experience-card__summary,
+body.light-theme .experience-card__description,
+body.light-theme .experience-card__achievements,
+body.light-theme .education-card__meta,
+body.light-theme .contact-card__value {
+    color: #646464;
+}
+
+body.light-theme .experience-card__achievements {
+    margin-top: 8px;
+}
+
+body.light-theme .mini-pill {
+    background: #efefef;
+    border-radius: 4px;
+    color: #6b6b6b;
+    font-size: 0.74rem;
+    padding: 4px 8px;
+}
+
+body.light-theme .site-footer {
+    border-top: 1px solid #ededed;
+    margin-top: 26px;
+    padding-top: 12px;
+}
+
+body.light-theme .site-footer__line,
+body.light-theme .site-footer__copyright {
+    color: #8a8a8a;
+}
+
+body.light-theme .site-footer a {
+    color: #6f6f6f;
+}
+
+@media (max-width: 719px) {
+    body.light-theme .theme-picker {
+        margin-bottom: 12px;
+        position: static;
+    }
+
+    body.light-theme .hero {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-bottom: 14px;
+    }
+
+    body.light-theme .hero__photo {
+        height: 168px;
+        width: 168px;
+    }
+
+    body.light-theme h1 {
+        font-size: 2.1rem;
+    }
+}
+
 img {
     display: block;
     max-width: 100%;
