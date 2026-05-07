@@ -4,6 +4,8 @@
 
 This project is a one-page resume website built with vanilla JavaScript and pure CSS. It loads content from JSON files, supports multiple visual themes, and does not depend on any third-party libraries or frameworks.
 
+Check out the live demo here! https://rnkjnk.github.io/skills/
+
 The main files are:
 
 - `index.html` for the page structure
