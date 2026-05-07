@@ -1,0 +1,66 @@
+/* ============================================================
+   Dark theme — all color design tokens
+   ============================================================ */
+:root {
+    /* Typography & shape */
+    --font-stack: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --radius-large: 18px;
+    --radius-medium: 12px;
+    --radius-small: 10px;
+    --radius-pill: 999px;
+
+    /* Page & panel backgrounds */
+    --page-bg: #0f1923;
+    --page-bg-alt: #111d27;
+    --page-overlay: rgba(0, 0, 0, 0.30);
+    --panel-bg: #162230;
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 18px 40px rgba(0, 0, 0, 0.40);
+
+    /* Hero */
+    --hero-tint-start: rgba(31, 106, 140, 0.18);
+    --hero-tint-end: rgba(31, 106, 140, 0.04);
+    --photo-gradient-start: #1e3548;
+    --photo-gradient-end: #172c3d;
+    --photo-border: rgba(255, 255, 255, 0.10);
+    --photo-shadow: rgba(0, 0, 0, 0.40);
+
+    /* Text */
+    --ink: #d8e6ee;
+    --muted: #7fa3b8;
+    --muted-strong: #a2bfcc;
+    --page-accent: #7ab8d4;
+
+    /* Accent / interactive */
+    --highlight: #5bb8e0;
+    --highlight-soft: rgba(91, 184, 224, 0.14);
+    --highlight-hover-bg: rgba(91, 184, 224, 0.10);
+    --highlight-active-bg: rgba(91, 184, 224, 0.10);
+    --highlight-border-hover: rgba(91, 184, 224, 0.30);
+    --highlight-border-active: rgba(91, 184, 224, 0.50);
+    --highlight-border-strong: rgba(91, 184, 224, 0.38);
+    --highlight-border-experience-hover: rgba(91, 184, 224, 0.30);
+    --highlight-inset: rgba(91, 184, 224, 0.22);
+
+    /* Cards & pills */
+    --card-bg: #1a2d3d;
+    --card-bg-solid: #1e3040;
+    --card-bg-active: #1f3448;
+    --card-hover-shadow: rgba(0, 0, 0, 0.30);
+    --skill-pill-bg: #1a3a52;
+    --skill-pill-active-bg: #1f4d6a;
+    --skill-hover-shadow: rgba(0, 0, 0, 0.30);
+    --experience-card-border: rgba(255, 255, 255, 0.07);
+    --mini-pill-bg: rgba(255, 255, 255, 0.10);
+
+    /* Connector */
+    --connector-color: rgba(91, 184, 224, 0.88);
+    --connector-glow: rgba(91, 184, 224, 0.36);
+    --connector-outline: rgba(255, 255, 255, 0.12);
+
+    /* Theme toggle button */
+    --theme-toggle-bg: rgba(255, 255, 255, 0.06);
+    --theme-toggle-border: rgba(255, 255, 255, 0.14);
+    --theme-toggle-color: #a2bfcc;
+    --theme-toggle-hover-bg: rgba(255, 255, 255, 0.12);
+}

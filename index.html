@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Professional Resume</title>
+    <link id="theme-link" rel="stylesheet" href="themes/light.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero panel" aria-labelledby="profile-name">
+            <nav id="theme-picker" class="theme-picker" aria-label="Theme"></nav>
+            <div class="hero__media">
+                <img id="profile-photo" class="hero__photo" src="" alt="Portrait placeholder">
+            </div>
+            <div class="hero__content">
+                <h1 id="profile-name">Loading profile...</h1>
+                <p id="profile-headline" class="headline"></p>
+                <p id="profile-summary" class="summary"></p>
+                <ul id="contact-list" class="contact-list" aria-label="Contact information"></ul>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div id="selection-connector" class="selection-connector is-hidden" aria-hidden="true"></div>
+
+            <section id="skills-panel" class="panel section-block" aria-labelledby="skills-title">
+                <div class="section-heading">
+                    <div>
+                            <p id="skills-title" class="section-kicker">Skills <span class="skills-hint"><span class="skills-hint__text">(clickable! try it!)</span><span class="skills-hint__arrow" aria-hidden="true">↓</span></span></p>
+                    </div>
+                    <button id="reset-filters" class="ghost-button" type="button">Clear selection</button>
+                </div>
+                <div id="skills-list" class="skills-list" aria-live="polite"></div>
+            </section>
+
+            <section id="experience-panel" class="panel section-block" aria-labelledby="experience-title">
+                <div class="section-heading">
+                    <div>
+                        <p id="experience-title" class="section-kicker">Experience</p>
+                    </div>
+                </div>
+                <div id="experience-list" class="experience-list" aria-live="polite"></div>
+            </section>
+
+            <section class="grid-section">
+                <section class="panel section-block" aria-labelledby="education-title">
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-kicker">Academic background</p>
+                            <h2 id="education-title">Education</h2>
+                        </div>
+                    </div>
+                    <div id="education-list" class="stack-list"></div>
+                </section>
+
+                <section class="panel section-block" aria-labelledby="contact-title">
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-kicker">Reach out</p>
+                            <h2 id="contact-title">Contact</h2>
+                        </div>
+                    </div>
+                    <div id="contact-card" class="stack-list"></div>
+                </section>
+            </section>
+        </main>
+
+        <footer class="site-footer" aria-label="Site footer">
+            <p class="site-footer__line">Like this resume format? Make it yours!</p>
+            <p class="site-footer__line">Vibe-coded in one Copilot session. Vanilla JS, pure CSS, zero third party libraries.</p>
+            <p class="site-footer__line">Beautiful font leeched from <a href="https://int10h.org/oldschool-pc-fonts/" target="_blank" rel="noopener noreferrer">https://int10h.org/oldschool-pc-fonts/</a></p>
+        </footer>
+    </div>
+
+    <template id="error-template">
+        <div class="panel error-panel" role="alert">
+            <h2>Unable to load resume data</h2>
+            <p>This page expects to be served from a static host or local web server so it can read <strong>data/data.json</strong>.</p>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>

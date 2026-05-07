@@ -1,0 +1,168 @@
+{
+    "profile": {
+        "name": "Alex Rivera",
+        "headline": "Senior Software Engineer",
+        "summary": "Experienced engineer with a track record of delivering scalable systems, leading cross-functional teams, and driving technical strategy across product and platform domains.",
+        "photoByTheme": {
+            "light": "images/profile-light.svg",
+            "dark": "images/profile-dark.svg",
+            "retro": "images/profile-retro.svg"
+        },
+        "photoAlt": "Placeholder portrait"
+    },
+    "contact": [
+        {
+            "label": "Location",
+            "value": "San Francisco, CA"
+        },
+        {
+            "label": "Email",
+            "value": "alex.rivera@example.com"
+        },
+        {
+            "label": "Phone",
+            "value": "+1 415 555 0182"
+        },
+        {
+            "label": "LinkedIn",
+            "value": "linkedin.com/in/alexrivera"
+        }
+    ],
+    "experience": [
+        {
+            "id": "orbital-staff",
+            "title": "Staff Engineer",
+            "company": "Orbital Commerce",
+            "location": "Berlin, Germany",
+            "startDate": "2025-01-01",
+            "startDateLabel": "Jan 2025",
+            "endDate": "Present",
+            "endDateLabel": "Present",
+            "summary": "Leading platform reliability and architecture decisions for multi-region commerce services.",
+            "achievements": [
+                "Introduced service-level objectives and observability standards across six teams.",
+                "Drove migration to Kubernetes and Terraform-managed infrastructure.",
+                "Established architecture coaching sessions for senior engineers."
+            ],
+            "skills": ["Solution Architecture", "Cloud Platforms", "AWS", "Kubernetes", "Terraform", "Observability", "Team Leadership", "Mentoring", "Application Security"]
+        },
+        {
+            "id": "northstar-principal",
+            "title": "Principal Software Engineer",
+            "company": "Northstar Systems",
+            "location": "Berlin, Germany",
+            "startDate": "2023-03-01",
+            "startDateLabel": "Mar 2023",
+            "endDate": "2024-12-01",
+            "endDateLabel": "Dec 2024",
+            "summary": "Led delivery for customer-facing platform modernization across product, architecture, and engineering operations.",
+            "achievements": [
+                "Defined a modular web platform used by three internal product teams.",
+                "Reduced release lead time through pipeline and test strategy changes.",
+                "Mentored senior engineers and ran architecture review practices."
+            ],
+            "skills": ["Solution Architecture", "JavaScript", "TypeScript", "React", "Cloud Platforms", "CI/CD", "Microservices", "Team Leadership", "Testing Strategy"]
+        },
+        {
+            "id": "atlas-senior",
+            "title": "Senior Full-Stack Engineer",
+            "company": "Atlas Digital",
+            "location": "Hamburg, Germany",
+            "startDate": "2020-01-01",
+            "startDateLabel": "Jan 2020",
+            "endDate": "2023-02-01",
+            "endDateLabel": "Feb 2023",
+            "summary": "Built internal tools and commercial applications spanning frontend systems, APIs, and reporting pipelines.",
+            "achievements": [
+                "Delivered a shared TypeScript frontend foundation adopted across five products.",
+                "Implemented Node.js services that improved integration reliability.",
+                "Partnered with analytics teams on SQL-heavy operational reporting."
+            ],
+            "skills": ["JavaScript", "TypeScript", "React", "Node.js", "GraphQL", "REST API Design", "SQL", "PostgreSQL", "Testing Strategy"]
+        },
+        {
+            "id": "quanta-engineer",
+            "title": "Software Engineer",
+            "company": "Quanta Labs",
+            "location": "Munich, Germany",
+            "startDate": "2017-06-01",
+            "startDateLabel": "Jun 2017",
+            "endDate": "2019-12-01",
+            "endDateLabel": "Dec 2019",
+            "summary": "Worked on data services and platform automation in a mixed Python and JavaScript environment.",
+            "achievements": [
+                "Created Python-based data processing workflows for internal teams.",
+                "Supported cloud migration work and infrastructure automation.",
+                "Contributed to frontend dashboards for operational visibility."
+            ],
+            "skills": ["Python", "JavaScript", "Node.js", "Docker", "Azure", "MongoDB", "Redis", "Linux", "SQL"]
+        },
+        {
+            "id": "bright-junior",
+            "title": "Junior Developer",
+            "company": "Bright Studio",
+            "location": "Cologne, Germany",
+            "startDate": "2014-09-01",
+            "startDateLabel": "Sep 2014",
+            "endDate": "2017-05-01",
+            "endDateLabel": "May 2017",
+            "summary": "Supported client web projects with a focus on implementation quality, testing, and maintainability.",
+            "achievements": [
+                "Maintained business websites and small custom web applications.",
+                "Improved test coverage for key client deliverables.",
+                "Collaborated closely with designers and project managers."
+            ],
+            "skills": ["JavaScript", "PHP", "SQL", "REST API Design", "Testing Strategy", "Linux"]
+        },
+        {
+            "id": "helix-associate",
+            "title": "Associate Software Engineer",
+            "company": "Helix HealthTech",
+            "location": "Bonn, Germany",
+            "startDate": "2013-02-01",
+            "startDateLabel": "Feb 2013",
+            "endDate": "2014-08-01",
+            "endDateLabel": "Aug 2014",
+            "summary": "Contributed to backend services and internal admin portals in a regulated domain.",
+            "achievements": [
+                "Implemented role-based access controls for internal tooling.",
+                "Built integration jobs between clinical and billing systems.",
+                "Helped standardize release checklists and QA handoffs."
+            ],
+            "skills": ["Java", "C#", "SQL", "REST API Design", "Application Security", "Testing Strategy"]
+        },
+        {
+            "id": "campus-freelance",
+            "title": "Freelance Web Developer",
+            "company": "Independent Projects",
+            "location": "Cologne, Germany",
+            "startDate": "2011-06-01",
+            "startDateLabel": "Jun 2011",
+            "endDate": "2013-01-01",
+            "endDateLabel": "Jan 2013",
+            "summary": "Delivered websites and lightweight web applications for local businesses while completing university studies.",
+            "achievements": [
+                "Shipped brochure and booking websites for eight small businesses.",
+                "Set up basic deployment and monitoring workflows for clients.",
+                "Managed client communication, scope, and delivery end-to-end."
+            ],
+            "skills": ["PHP", "JavaScript", "SQL", "Linux", "Go", "Mentoring"]
+        }
+    ],
+    "education": [
+        {
+            "degree": "M.Sc. Computer Science",
+            "school": "Technical University of Munich",
+            "startYear": "2012",
+            "endYear": "2014",
+            "details": "Focus on distributed systems and software engineering."
+        },
+        {
+            "degree": "B.Sc. Information Systems",
+            "school": "University of Cologne",
+            "startYear": "2009",
+            "endYear": "2012",
+            "details": "Coursework in application development, databases, and project delivery."
+        }
+    ]
+}

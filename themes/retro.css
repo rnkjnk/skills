@@ -1,0 +1,86 @@
+/* ============================================================
+   Retro theme — MS-DOS / CGA terminal aesthetic
+   ============================================================ */
+@font-face {
+    font-family: "WebPlus IBM VGA 8x16";
+    src:
+        local("WebPlus IBM VGA 8x16"),
+        url("../fonts/WebPlus_IBM_VGA_8x16.woff") format("woff");
+    font-display: swap;
+}
+
+:root {
+    /* Typography & shape */
+    --font-stack: "Lucida Console", "Courier New", Courier, monospace;
+    --radius-large: 0px;
+    --radius-medium: 0px;
+    --radius-small: 0px;
+    --radius-pill: 0px;
+
+    /* Page & panel backgrounds */
+    --page-bg: #000000;
+    --page-bg-alt: #000000;
+    --page-overlay: rgba(0, 0, 0, 0);
+    --panel-bg: #000066;
+    --panel-border: #aaaaaa;
+    --shadow: none;
+
+    /* Hero */
+    --hero-tint-start: rgba(0, 0, 0, 0);
+    --hero-tint-end: rgba(0, 0, 0, 0);
+    --photo-gradient-start: #000044;
+    --photo-gradient-end: #000066;
+    --photo-border: #aaaaaa;
+    --photo-shadow: none;
+
+    /* Text */
+    --ink: #ffffff;
+    --muted: #aaaaaa;
+    --muted-strong: #ffffff;
+    --page-accent: #55ffff;
+
+    /* Accent / interactive */
+    --highlight: #ffff55;
+    --highlight-soft: rgba(85, 255, 255, 0.20);
+    --highlight-hover-bg: rgba(85, 255, 255, 0.15);
+    --highlight-active-bg: rgba(85, 255, 255, 0.18);
+    --highlight-border-hover: #55ffff;
+    --highlight-border-active: #ffff55;
+    --highlight-border-strong: #ffff55;
+    --highlight-border-experience-hover: #55ffff;
+    --highlight-inset: rgba(255, 255, 85, 0.30);
+
+    /* Cards & pills */
+    --card-bg: #000044;
+    --card-bg-solid: #000044;
+    --card-bg-active: #000077;
+    --card-hover-shadow: none;
+    --skill-pill-bg: #aaaaaa;
+    --skill-pill-active-bg: #55ffff;
+    --skill-hover-shadow: none;
+    --experience-card-border: #aaaaaa;
+    --mini-pill-bg: rgba(255, 255, 255, 0.12);
+
+    /* Connector */
+    --connector-color: #55ffff;
+    --connector-glow: rgba(85, 255, 255, 0.50);
+    --connector-outline: rgba(0, 0, 0, 0.50);
+
+    /* Theme toggle button */
+    --theme-toggle-bg: #aaaaaa;
+    --theme-toggle-border: #ffffff;
+    --theme-toggle-color: #000000;
+    --theme-toggle-hover-bg: #ffffff;
+}
+
+.retro-theme #profile-name {
+    font-family: "WebPlus IBM VGA 8x16", var(--font-stack);
+    background: #aaaaaa;
+    box-shadow: 13px 13px 0 #111111;
+    color: #000000;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 0.9;
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 20px;
+}
