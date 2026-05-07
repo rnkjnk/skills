@@ -270,6 +270,12 @@ body.light-theme .section-kicker {
     letter-spacing: 0.16em;
 }
 
+body.light-theme .ghost-button,
+body.dark-theme .ghost-button {
+    font-size: 0.74rem;
+    line-height: 1.15;
+}
+
 body.light-theme .skills-hint {
     color: #999999;
     font-size: 0.7rem;
@@ -329,13 +335,22 @@ body.light-theme .skill-pill:focus {
 body.light-theme .skill-pill.is-active,
 body.light-theme .skill-pill.is-related {
     border-radius: 25px;
-    box-shadow: 0 0 8px 2px rgba(255, 220, 50, 0.75), 0 0 20px 5px rgba(255, 220, 50, 0.35);
+    box-shadow: 0 0 0px 0px var(--connector-color), 0 0 8px 1px var(--connector-glow);
     font-size: 1.0625rem;
     padding: 4px 11px;
 }
 
+body.light-theme .skill-pill--tier-4.is-active,
+body.light-theme .skill-pill--tier-4.is-related {
+    box-shadow: 0 0 8px 2px var(--connector-color), 0 0 20px 5px var(--connector-glow);
+}
+
 body.light-theme .skill-pill.is-active .skill-pill__meta {
     color: rgba(255, 255, 255, 0.88);
+}
+
+body.light-theme .skill-pill--tier-3.is-active .skill-pill__meta {
+    color: #000000;
 }
 
 body.light-theme .skill-pill.is-dimmed,
@@ -358,6 +373,11 @@ body.light-theme .contact-card {
 body.light-theme .experience-card {
     border-top: 1px solid #efefef;
     padding-top: 12px;
+}
+
+body.light-theme .experience-card:hover,
+body.light-theme .experience-card:focus {
+    box-shadow: none;
 }
 
 body.light-theme .experience-card:first-child {
@@ -713,6 +733,7 @@ main {
     padding: 0;
     text-decoration: underline;
     transition: color var(--transition-speed), text-decoration-color var(--transition-speed);
+    white-space: nowrap;
 }
 
 .ghost-button:hover,
@@ -720,6 +741,22 @@ main {
     background: none;
     color: var(--muted-strong);
     outline: none;
+}
+
+.ghost-button.is-floating {
+    background: var(--panel-bg);
+    border-radius: var(--radius-small);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+    padding: 0;
+    position: fixed;
+    z-index: 30;
+}
+
+.retro-theme .ghost-button.is-floating {
+    background: #aaaaaa;
+    border-radius: 0;
+    box-shadow: none;
+    color: #000000;
 }
 
 .skills-list {

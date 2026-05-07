@@ -77,6 +77,8 @@
         data: null
     };
     var connectorRefreshTimer = null;
+    var resetButtonOriginY = null;
+    var resetButtonOriginX = null;
 
     var elements = {
         main: document.getElementById('main-content'),
@@ -139,6 +141,10 @@
         var targetInfo = [];
         var targetIndex;
         var targetRect;
+        var companyNode;
+        var companyRect;
+        var companyFontSize;
+        var companyLeadGap;
         var targetXInside;
         var targetYInside;
         var topY;
@@ -177,9 +183,21 @@
 
         for (targetIndex = 0; targetIndex < targetNodes.length; targetIndex += 1) {
             targetRect = targetNodes[targetIndex].getBoundingClientRect();
-            var companyNode = targetNodes[targetIndex].querySelector('.experience-card__company');
-            var companyRect = companyNode ? companyNode.getBoundingClientRect() : null;
-            targetXInside = targetRect.left - mainRect.left;
+            companyNode = targetNodes[targetIndex].querySelector('.experience-card__company');
+            companyRect = companyNode ? companyNode.getBoundingClientRect() : null;
+
+            if (companyNode && window.getComputedStyle) {
+                companyFontSize = parseFloat(window.getComputedStyle(companyNode).fontSize) || 16;
+            } else {
+                companyFontSize = 16;
+            }
+
+            // Leave about half a character of breathing room before the company label.
+            companyLeadGap = Math.max(4, Math.round(companyFontSize * 0.35));
+
+            targetXInside = companyRect
+                ? (companyRect.left - mainRect.left) - companyLeadGap
+                : (targetRect.left - mainRect.left);
             targetYInside = companyRect
                 ? (companyRect.top + (companyRect.height / 2)) - mainRect.top
                 : (targetRect.top + (targetRect.height / 2)) - mainRect.top;
@@ -230,6 +248,64 @@
             updateConnector();
             connectorRefreshTimer = null;
         }, 320);
+    }
+
+    function clearResetButtonFloating() {
+        elements.resetButton.classList.remove('is-floating');
+        elements.resetButton.style.left = '';
+        elements.resetButton.style.top = '';
+    }
+
+    function measureResetButtonOrigin() {
+        var rect;
+        var wasFloating;
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+        if (!elements.resetButton || elements.resetButton.className.indexOf('is-hidden') !== -1) {
+            resetButtonOriginY = null;
+            resetButtonOriginX = null;
+            return;
+        }
+
+        wasFloating = elements.resetButton.classList.contains('is-floating');
+        if (wasFloating) {
+            clearResetButtonFloating();
+        }
+
+        rect = elements.resetButton.getBoundingClientRect();
+        resetButtonOriginY = rect.top + scrollY;
+        resetButtonOriginX = rect.left;
+
+        if (wasFloating) {
+            updateResetButtonFloating();
+        }
+    }
+
+    function updateResetButtonFloating() {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        var threshold = 12;
+
+        if (!elements.resetButton || elements.resetButton.className.indexOf('is-hidden') !== -1) {
+            clearResetButtonFloating();
+            return;
+        }
+
+        if (resetButtonOriginY === null || resetButtonOriginX === null) {
+            measureResetButtonOrigin();
+        }
+
+        if (resetButtonOriginY === null) {
+            clearResetButtonFloating();
+            return;
+        }
+
+        if (scrollY + threshold >= resetButtonOriginY) {
+            elements.resetButton.classList.add('is-floating');
+            elements.resetButton.style.top = threshold + 'px';
+            elements.resetButton.style.left = Math.round(resetButtonOriginX) + 'px';
+        } else {
+            clearResetButtonFloating();
+        }
     }
 
     function getRects(container, selector, attributeName) {
@@ -659,6 +735,8 @@
         renderEducation();
         renderContactCard();
         elements.resetButton.className = state.activeSkillName || state.activeExperienceId ? 'ghost-button' : 'ghost-button is-hidden';
+        measureResetButtonOrigin();
+        updateResetButtonFloating();
         animateReorder(elements.skillsList, '[data-animate-key]', 'data-animate-key', skillRects);
         animateReorder(elements.experienceList, '[data-animate-key]', 'data-animate-key', experienceRects);
         scheduleConnectorRefresh();
@@ -730,8 +808,22 @@
         if (window.addEventListener) {
             window.addEventListener('resize', updateConnector);
             window.addEventListener('orientationchange', updateConnector);
+            window.addEventListener('scroll', updateResetButtonFloating);
+            window.addEventListener('resize', function () {
+                measureResetButtonOrigin();
+                updateResetButtonFloating();
+            });
+            window.addEventListener('orientationchange', function () {
+                measureResetButtonOrigin();
+                updateResetButtonFloating();
+            });
         } else if (window.attachEvent) {
             window.attachEvent('onresize', updateConnector);
+            window.attachEvent('onscroll', updateResetButtonFloating);
+            window.attachEvent('onresize', function () {
+                measureResetButtonOrigin();
+                updateResetButtonFloating();
+            });
         }
     }
 
@@ -831,7 +923,11 @@
             }
 
             // Fallback in case stylesheet load event is not emitted by the browser/cache path.
-            setTimeout(refreshConnectorForTheme, 60);
+            setTimeout(function () {
+                refreshConnectorForTheme();
+                measureResetButtonOrigin();
+                updateResetButtonFloating();
+            }, 60);
         }
 
         try {
