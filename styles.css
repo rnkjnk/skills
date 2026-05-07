@@ -341,6 +341,12 @@ h3 {
     font-size: 0.95rem;
 }
 
+.site-footer__copyright {
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 18px;
+}
+
 main {
     position: relative;
     padding-top: 12px;

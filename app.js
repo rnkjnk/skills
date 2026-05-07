@@ -463,6 +463,7 @@
         elements.headline.innerHTML = escapeHtml(profile.headline || 'Professional headline');
         elements.summary.innerHTML = escapeHtml(profile.summary || 'Add a concise professional summary in data.json.');
         document.title = profileName;
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
         for (contactIndex = 0; contactIndex < state.data.contact.length; contactIndex += 1) {
             contactItem = state.data.contact[contactIndex];
