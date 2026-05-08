@@ -395,12 +395,57 @@
         });
     }
 
+    function parseTierOverride(value) {
+        var tierValue = Number(value);
+
+        if (value === null || typeof value === 'undefined') {
+            return null;
+        }
+
+        if (!isFinite(tierValue) || Math.floor(tierValue) !== tierValue || tierValue < 1 || tierValue > 4) {
+            return null;
+        }
+
+        return tierValue;
+    }
+
+    function applySkillTierOverrides(skills, skillOverrides) {
+        var items = skills.slice();
+        var index;
+        var skill;
+        var overrideEntry;
+        var overrideTier;
+
+        if (!skillOverrides || typeof skillOverrides !== 'object') {
+            return items;
+        }
+
+        for (index = 0; index < items.length; index += 1) {
+            skill = items[index];
+            overrideEntry = skillOverrides[skill.name];
+            overrideTier = null;
+
+            if (typeof overrideEntry === 'number' || typeof overrideEntry === 'string') {
+                overrideTier = parseTierOverride(overrideEntry);
+            } else if (overrideEntry && typeof overrideEntry === 'object') {
+                overrideTier = parseTierOverride(overrideEntry.tier);
+            }
+
+            if (overrideTier !== null) {
+                skill.tierOverride = overrideTier;
+            }
+        }
+
+        return items;
+    }
+
     function normalizeData(data) {
         var normalized = data || {};
         normalized.profile = normalized.profile || {};
         normalized.contact = normalized.contact || [];
         normalized.experience = sortExperience(normalized.experience || []);
         normalized.skills = buildSkillsFromExperience(normalized.experience);
+        normalized.skills = applySkillTierOverrides(normalized.skills, normalized.skillOverrides);
         normalized.education = normalized.education || [];
         return normalized;
     }
@@ -463,30 +508,56 @@
     function getOrderedSkills() {
         var items = state.data.skills.slice();
         var activeSkillNames = getActiveSkillNames();
-        var matching = [];
-        var other = [];
-        var index;
-
         items.sort(function (left, right) {
-            return (right.years || 0) - (left.years || 0);
+            var leftSelected = activeSkillNames.indexOf(left.name) !== -1 ? 1 : 0;
+            var rightSelected = activeSkillNames.indexOf(right.name) !== -1 ? 1 : 0;
+            var leftTier;
+            var rightTier;
+            var yearsDiff;
+
+            if (rightSelected !== leftSelected) {
+                return rightSelected - leftSelected;
+            }
+
+            leftTier = skillTier(left);
+            rightTier = skillTier(right);
+            if (rightTier !== leftTier) {
+                return rightTier - leftTier;
+            }
+
+            yearsDiff = (right.years || 0) - (left.years || 0);
+            if (yearsDiff !== 0) {
+                return yearsDiff;
+            }
+
+            if (left.name < right.name) {
+                return -1;
+            }
+            if (left.name > right.name) {
+                return 1;
+            }
+            return 0;
         });
 
-        if (!activeSkillNames.length) {
-            return items;
-        }
+        return items;
+    }
 
-        for (index = 0; index < items.length; index += 1) {
-            if (activeSkillNames.indexOf(items[index].name) !== -1) {
-                matching.push(items[index]);
-            } else {
-                other.push(items[index]);
-            }
+    function formatYears(years) {
+        var amount = years || 0;
+        if (amount < 1) {
+            return (Math.round(amount * 10) / 10).toFixed(1) + ' yr';
         }
-
-        return matching.concat(other);
+        if (amount === 1) {
+            return '1 yr';
+        }
+        return String(amount) + ' yrs';
     }
 
     function skillTier(skill) {
+        if (skill && typeof skill.tierOverride === 'number') {
+            return skill.tierOverride;
+        }
+
         var amount = skill.years || skill.weight || 0;
         if (amount >= 9) {
             return 4;
@@ -583,7 +654,7 @@
             markup.push(
                 '<button class="' + classNames.join(' ') + '" type="button" data-skill-name="' + escapeHtml(skill.name) + '" data-animate-key="skill-' + escapeHtml(skill.name) + '" aria-pressed="' + (state.activeSkillName === skill.name ? 'true' : 'false') + '">' +
                     '<span class="skill-pill__name">' + escapeHtml(skill.name) + '</span>' +
-                    '<span class="skill-pill__meta">' + escapeHtml(String(skill.years || 0)) + ' yrs</span>' +
+                    '<span class="skill-pill__meta">' + escapeHtml(formatYears(skill.years)) + '</span>' +
                 '</button>'
             );
         }

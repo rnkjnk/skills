@@ -38,6 +38,21 @@ Each experience item contains a `skills` array with full skill names, for exampl
 
 The site builds the top skills section automatically from the skills listed inside your experience entries. Skill years are calculated from the duration of the positions where each skill appears.
 
+You can optionally override only the visual tier of any skill without changing its calculated years by adding `skillOverrides` at the top level:
+
+```json
+"skillOverrides": {
+	"React": { "tier": 4 },
+	"Kubernetes": { "tier": 2 }
+}
+```
+
+Rules:
+
+- valid tier values are integers `1` to `4`
+- invalid values are ignored
+- skill ordering and `X yrs` labels still use calculated years
+
 ## How To Add Your Picture(s)
 
 Set your image paths inside `profile.photoByTheme` in `data/data.json`.

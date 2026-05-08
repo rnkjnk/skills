@@ -149,6 +149,10 @@
             "skills": ["PHP", "JavaScript", "SQL", "Linux", "Go", "Mentoring"]
         }
     ],
+    "skillOverrides": {
+        "CI/CD": 4,
+        "Solution Architecture": 4
+    },
     "education": [
         {
             "degree": "M.Sc. Computer Science",
