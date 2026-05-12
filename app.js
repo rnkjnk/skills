@@ -76,6 +76,11 @@
         activeExperienceId: null,
         data: null
     };
+    var photoPreloadStatus = {};
+    var photoSwapToken = 0;
+    var hasPrioritizedFontLoad = false;
+    var isFontLoadAwaiting = false;
+    var hasPreloadedThemePhotos = false;
     var connectorRefreshTimer = null;
     var resetButtonOriginY = null;
     var resetButtonOriginX = null;
@@ -601,6 +606,175 @@
         return theme === 'retro' ? PLACEHOLDER_IMAGE_RETRO : PLACEHOLDER_IMAGE;
     }
 
+    function flushPhotoReadyListeners(status, isReady) {
+        var listeners;
+        var index;
+
+        listeners = status.listeners || [];
+        status.listeners = [];
+
+        for (index = 0; index < listeners.length; index += 1) {
+            listeners[index](isReady);
+        }
+    }
+
+    function preloadImageUrl(url) {
+        var status;
+        var image;
+
+        if (!url || url.indexOf('data:') === 0) {
+            return;
+        }
+
+        status = photoPreloadStatus[url];
+        if (status && (status.state === 'loading' || status.state === 'loaded' || status.state === 'error')) {
+            return;
+        }
+
+        status = {
+            state: 'loading',
+            listeners: []
+        };
+        photoPreloadStatus[url] = status;
+
+        image = new Image();
+        status.image = image;
+
+        image.onload = function () {
+            status.state = 'loaded';
+            flushPhotoReadyListeners(status, true);
+        };
+
+        image.onerror = function () {
+            status.state = 'error';
+            flushPhotoReadyListeners(status, false);
+        };
+
+        image.src = url;
+    }
+
+    function whenPhotoUrlReady(url, callback) {
+        var status;
+
+        if (!url || url.indexOf('data:') === 0) {
+            callback(true);
+            return;
+        }
+
+        status = photoPreloadStatus[url];
+        if (status && status.state === 'loaded') {
+            callback(true);
+            return;
+        }
+
+        if (status && status.state === 'error') {
+            callback(false);
+            return;
+        }
+
+        if (!status) {
+            preloadImageUrl(url);
+            status = photoPreloadStatus[url];
+        }
+
+        status.listeners.push(callback);
+    }
+
+    function preloadThemePhotos(profile) {
+        var themedPhotos;
+        var themeName;
+
+        if (!profile) {
+            return;
+        }
+
+        themedPhotos = profile.photoByTheme || null;
+
+        if (themedPhotos) {
+            for (themeName in themedPhotos) {
+                if (themedPhotos.hasOwnProperty(themeName)) {
+                    preloadImageUrl(themedPhotos[themeName]);
+                }
+            }
+        }
+
+        if (profile.photo) {
+            preloadImageUrl(profile.photo);
+        }
+    }
+
+    function ensureThemePhotosPreloaded(profile) {
+        if (hasPreloadedThemePhotos) {
+            return;
+        }
+
+        preloadThemePhotos(profile);
+        hasPreloadedThemePhotos = true;
+    }
+
+    function getThemeFallbackPhotoUrl() {
+        return getCurrentTheme() === 'retro' ? PLACEHOLDER_IMAGE_RETRO : PLACEHOLDER_IMAGE;
+    }
+
+    function whenFontsReady(callback) {
+        if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
+            document.fonts.ready.then(function () {
+                callback();
+            }, function () {
+                callback();
+            });
+            return;
+        }
+
+        setTimeout(function () {
+            callback();
+        }, 0);
+    }
+
+    function updateProfilePhoto(profile) {
+        var targetUrl = getProfilePhotoUrl(profile);
+        var fallbackUrl = getThemeFallbackPhotoUrl();
+        var requestToken = photoSwapToken + 1;
+        var currentSrcAttribute = elements.photo.getAttribute('src');
+        var hasCurrentPhoto = !!currentSrcAttribute;
+
+        photoSwapToken = requestToken;
+
+        if (elements.photo.src === targetUrl) {
+            return;
+        }
+
+        // Keep a valid placeholder while prioritizing initial font load.
+        if (!hasCurrentPhoto || !hasPrioritizedFontLoad) {
+            elements.photo.src = fallbackUrl;
+        }
+
+        if (!hasPrioritizedFontLoad) {
+            if (isFontLoadAwaiting) {
+                return;
+            }
+
+            isFontLoadAwaiting = true;
+            whenFontsReady(function () {
+                isFontLoadAwaiting = false;
+                hasPrioritizedFontLoad = true;
+                ensureThemePhotosPreloaded(profile);
+                updateProfilePhoto(profile);
+            });
+            return;
+        }
+
+        ensureThemePhotosPreloaded(profile);
+
+        whenPhotoUrlReady(targetUrl, function (isReady) {
+            if (requestToken !== photoSwapToken) {
+                return;
+            }
+
+            elements.photo.src = isReady ? targetUrl : fallbackUrl;
+        });
+    }
+
     function renderProfile() {
         var profile = state.data.profile;
         var profileName = profile.name || 'Your Name';
@@ -608,8 +782,8 @@
         var contactIndex;
         var contactItem;
 
-        elements.photo.src = getProfilePhotoUrl(profile);
         elements.photo.alt = profile.photoAlt || 'Portrait placeholder';
+        updateProfilePhoto(profile);
         elements.name.innerHTML = escapeHtml(profileName);
         elements.headline.innerHTML = escapeHtml(profile.headline || 'Professional headline');
         elements.summary.innerHTML = escapeHtml(profile.summary || 'Add a concise professional summary in data.json.');
