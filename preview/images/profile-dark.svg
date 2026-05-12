@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-label="Profile placeholder for dark theme">
+  <defs>
+    <linearGradient id="bgDark" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1e3548"/>
+      <stop offset="100%" stop-color="#172c3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="360" rx="36" fill="url(#bgDark)"/>
+  <circle cx="180" cy="132" r="62" fill="#7fa3b8"/>
+  <path d="M88 294c18-48 53-74 92-74s74 26 92 74" fill="#7fa3b8"/>
+</svg>

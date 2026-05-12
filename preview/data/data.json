@@ -1,0 +1,185 @@
+{
+    "profile": {
+        "name": "Ranko Janković",
+        "headline": "Lead Software Developer",
+        "summary": "20+ years of experience developing software centered around Microsoft technologies",
+        "photoByTheme": {
+            "light": "images/light.png",
+            "dark": "images/dark.png",
+            "retro": "images/retro1.png"
+        },
+        "photoAlt": "Ranko Janković"
+    },
+    "contact": [
+        {
+            "label": "Location",
+            "value": "Podgorica, Montenegro"
+        },
+        {
+            "label": "Email",
+            "value": "rnkjnk@gmail.com"
+        },
+        {
+            "label": "Phone",
+            "value": "+382 67 239 698"
+        },
+        {
+            "label": "LinkedIn",
+            "value": "linkedin.com/in/rnkjnk/"
+        }
+    ],
+    "experience": [
+        {
+            "id": "self-employed-lead",
+            "title": "Lead Software Developer",
+            "company": "Self Employed",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2023-10-01",
+            "startDateLabel": "Oct 2023",
+            "endDate": "Present",
+            "endDateLabel": "Present",
+            "summary": "Developing custom APIs and applications for various clients, including media playback systems and financial software.",
+            "achievements": [
+                "Custom API and JS component for displaying stream metadata on radio station website using GO and jQuery.",
+                "Rewrite of ASP.NET Web Forms application as GO API.",
+                "E-invoicing and electronic fiscalization API implementation on legacy software."
+            ],
+            "skills": ["C#", "GO", "JavaScript", "jQuery", "REST", "ASP.NET", "Solution Architecture"]
+        },
+        {
+            "id": "bild-studio-tech-lead",
+            "title": "Technical Lead",
+            "company": "Bild Studio",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2022-10-01",
+            "startDateLabel": "Oct 2022",
+            "endDate": "2023-09-01",
+            "endDateLabel": "Sep 2023",
+            "summary": "Led technical direction and architecture for multiple platform development projects.",
+            "achievements": [
+                "Gathered client requirements and designed solution architecture for Wild Immersion media catalog.",
+                "Tech lead duties for platform modernization and team management.",
+                "Mentored senior engineers on architecture best practices."
+            ],
+            "skills": ["Solution Architecture", "Team Leadership", ".NET Core", "C#", "Azure", "Microservices", "Payment Systems"]
+        },
+        {
+            "id": "bild-studio-senior",
+            "title": "Senior Software Developer",
+            "company": "Bild Studio",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2018-06-01",
+            "startDateLabel": "Jun 2018",
+            "endDate": "2022-10-01",
+            "endDateLabel": "Oct 2022",
+            "summary": "Key member of team working on major platform migration and modernization projects, contributing to architecture design and feature implementation.",
+            "achievements": [
+                "Significantly contributed to re-write of EkhartYoga platform, migrating from PHP to .NET Core. Re-designed key components including subscription pricing, recurring memberships, and payment processing microservice.",
+                "Contributed to design and early rewrite phase of Pimalion migration from PHP to .NET.",
+                "Developed API for Regulatory Information Management (RIM) software for Acuta."
+            ],
+            "skills": ["C#", ".NET Core", "Azure", "Payment Systems", "Microservices", "SQL", "PostgreSQL", "Entity Framework Core", "REST API Design", "Solution Architecture"]
+        },
+        {
+            "id": "infotech-senior",
+            "title": "Senior Software Developer",
+            "company": "InfoTech Solutions For Business",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2014-10-01",
+            "startDateLabel": "Oct 2014",
+            "endDate": "2018-06-01",
+            "endDateLabel": "Jun 2018",
+            "summary": "Developed comprehensive financial research product workflow management software platform and toolset.",
+            "achievements": [
+                "Played central role in developing .NET ASP MVC Web App for RPAS platform.",
+                "Developed classic ASP web application components.",
+                "Implemented AWS Elasticsearch Research library and Microsoft VSTO Word Add-In."
+            ],
+            "skills": ["C#", ".NET Framework", "ASP.NET MVC", "ASP.NET", "SQL Server", "AWS", "VSTO", "REST API Design"]
+        },
+        {
+            "id": "mojsupermarket-dev",
+            "title": "Software Developer",
+            "company": "MojSupermarket",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2012-04-01",
+            "startDateLabel": "Apr 2012",
+            "endDate": "2014-09-01",
+            "endDateLabel": "Sep 2014",
+            "summary": "Designed and developed database systems and software for online supermarket operations including inventory management and POS.",
+            "achievements": [
+                "Designed and developed database for on-line supermarket using MySQL.",
+                "Developed multi-purpose Windows service for parsing text files to update product information and download orders using VB.NET, MySQL and MS Access.",
+                "Developed order processing and POS software using MS Access, and financial accounting and inventory management software."
+            ],
+            "skills": ["VB.NET", "MySQL", "MS SQL Server", "MS Access", "Windows Services", "OOP"]
+        },
+        {
+            "id": "soltex-independent",
+            "title": "Independent Software Developer",
+            "company": "Soltex",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2006-07-01",
+            "startDateLabel": "Jul 2006",
+            "endDate": "2012-04-01",
+            "endDateLabel": "Apr 2012",
+            "summary": "Provided comprehensive software development and IT consulting services to over 30 clients, developing specialized business applications.",
+            "achievements": [
+                "Developed financial accounting, inventory management and POS software using MS Access and MS SQL Server, deployed across 15+ companies in Montenegro.",
+                "Developed parliament activity tracking software and maintained databases for MANS NGO.",
+                "Developed specialized applications for expense tracking, material tracking and fleet management for construction company.",
+                "Developed web applications for advertising media tracking and college disability support search for USA-based clients using ASP and MS SQL Server.",
+                "Developed web applications using Joomla, CMSimple and WordPress."
+            ],
+            "skills": ["MS Access", "MS SQL Server", "ASP.NET", "ASP.NET Web Forms", "PHP", "OOP", "CSS", "JavaScript", "Entity Framework", "Business Requirements"]
+        },
+        {
+            "id": "kips-lead",
+            "title": "Lead Software Developer",
+            "company": "KIPS",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2003-03-01",
+            "startDateLabel": "Mar 2003",
+            "endDate": "2006-06-01",
+            "endDateLabel": "Jun 2006",
+            "summary": "Developed and maintained in-house business software and specialized applications for transport and payment systems.",
+            "achievements": [
+                "Developed and expanded in-house business software using MS Access and MS SQL Server 2000.",
+                "Developed transport planning and tracking software using MS Visual C++ 6.0 and MS SQL Server 2000.",
+                "Developed outgoing payment management software using MS Visual C++ 6.0 and MS SQL Server 2000."
+            ],
+            "skills": ["C++", "MS Access", "MS SQL Server", "Windows Services", "OOP"]
+        },
+        {
+            "id": "student-radio-volunteer",
+            "title": "Volunteer Tech Consultant",
+            "company": "Studentski Radio KRŠ",
+            "location": "Podgorica, Montenegro",
+            "startDate": "2014-01-01",
+            "startDateLabel": "Jan 2014",
+            "endDate": "Present",
+            "endDateLabel": "Present",
+            "summary": "Continuous technical consulting and maintenance for student radio station infrastructure.",
+            "achievements": [
+                "Continually providing technical consulting for student radio station.",
+                "Developed and maintaining radio station website with online streaming based on IceCast server."
+            ],
+            "skills": ["Icecast", "JavaScript", "CSS", "Linux", "Business Requirements"]
+        }
+    ],
+    "skillOverrides": {
+        "C#": { "tier": 4 },
+        ".NET Core": { "tier": 4 },
+        "Solution Architecture": { "tier": 4 },
+        "Team Leadership": { "tier": 4 },
+        "SQL": { "tier": 4 },
+        "Microsoft Azure": { "tier": 4 },
+        "DDD": { "tier": 3 },
+        "Microservices": { "tier": 3 },
+        "ASP.NET": { "tier": 3 },
+        "Entity Framework Core": { "tier": 3 },
+        "REST": { "tier": 4 },
+        "Azure DevOps": { "tier": 3 }
+    },
+    "education": []
+}

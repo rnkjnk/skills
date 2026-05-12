@@ -1,0 +1,51 @@
+PRIVACY POLICY
+
+Last Updated: May 8, 2026
+
+1. INTRODUCTION
+This Privacy Policy explains how this website handles information. We are committed to protecting your privacy and ensuring you have a positive experience on our website.
+
+2. INFORMATION WE COLLECT
+This is a static resume website that does NOT collect, store, or process any personal data from visitors. We do not use:
+- Cookies (except those technically necessary for basic site functionality)
+- Analytics tools
+- Contact forms
+- User accounts or login systems
+- Any external tracking services
+
+3. HOW WE USE INFORMATION
+Since we do not collect personal data, we have no personal information to process or use.
+
+4. DATA SECURITY
+The information displayed on this website is publicly available content (resume and contact details). No sensitive personal data is collected or stored on our servers.
+
+5. YOUR RIGHTS UNDER GDPR
+Under the General Data Protection Regulation (GDPR), you have the right to:
+- Access any personal data we hold about you
+- Request correction of inaccurate data
+- Request deletion of your data
+- Object to processing
+- Request restriction of processing
+- Data portability
+- Withdraw consent
+
+Since we do not collect personal data from website visitors, these rights do not apply to your website visits.
+
+6. THIRD-PARTY CONTENT
+This website does not embed external scripts, trackers, or widgets that collect data. All content is self-hosted.
+
+7. LINKS TO OTHER WEBSITES
+This privacy policy applies only to this website. We are not responsible for the privacy practices of external websites linked from this site.
+
+8. CHILDREN'S PRIVACY
+This website does not knowingly collect information from children and is not directed to individuals under 18 years old.
+
+9. CHANGES TO THIS POLICY
+We may update this Privacy Policy from time to time. Changes will be posted on this page with the updated "Last Updated" date.
+
+10. CONTACT US
+If you have questions about this Privacy Policy or our privacy practices, you can reach out through the contact information provided on the website.
+
+---
+
+This website is simple and transparent: it displays resume information and does not track or collect visitor data.

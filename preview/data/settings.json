@@ -1,0 +1,4 @@
+{
+    "available-themes": ["light", "dark", "retro"],
+    "default-theme": "retro"
+}
